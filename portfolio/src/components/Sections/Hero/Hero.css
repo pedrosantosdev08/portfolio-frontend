@@ -1,0 +1,106 @@
+.hero-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  min-height: calc(100vh - 90px);
+  padding: 50px 20px;
+  background-color: var(--background-color);
+  background-image: radial-gradient(circle at 50% 40%, rgba(255, 138, 0, 0.12), transparent 70%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 2;
+}
+
+.hero-title {
+  color: var(--font-color);
+  font-size: 18px;
+}
+
+.hero-title span {
+  color: var(--font-color-white);
+  font-size: 28px;
+  font-weight: 600;
+  display: block;
+}
+
+.hero-subtitle {
+  color: var(--orange-color);
+  font-size: 64px;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.social-media {
+  display: flex;
+  gap: 12px;
+}
+
+.social-media a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  color: var(--font-color);
+  transition: all 0.3s ease;
+}
+
+.actions-btn {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-default {
+  background-color: var(--orange-color);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-default a {
+  text-decoration: none;
+  color: var(--font-color-white);
+}
+
+.btn-secondary {
+  color: var(--font-color-white);
+  border: 1px solid #444;
+  padding: 12px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.hero-image img {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, 0.05);
+}
+
+/* RESPONSIVIDADE HERO */
+@media (max-width: 992px) {
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    justify-content: center;
+    gap: 40px;
+  }
+  .hero-subtitle { font-size: 48px; }
+  .social-media, .actions-btn { justify-content: center; }
+  .hero-image img { width: 280px; height: 280px; }
+}

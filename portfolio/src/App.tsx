@@ -1,18 +1,22 @@
-import './App.css'
-import { Header } from './components/Header'
-import { Hero } from './components/Hero'
-import { Services } from './components/Services'
+import "./App.css";
+import { AboutMe } from "./components/Sections/About/AboutMe";
+import { ContactMe } from "./components/Sections/ContactMe/ContactMe";
+import { Header } from "./components/Sections/Header/Header";
+import { Hero } from "./components/Sections/Hero/Hero";
+import { Portfolio } from "./components/Sections/Portfolio/Portfolio";
+import { Services } from "./components/Sections/Services/Services";
 
 function App() {
-  
-
   return (
     <>
-      <Header/>
-      <Hero/>
-      <Services/>
+      <Header />
+      <Hero />
+      <Services />
+      <AboutMe />
+      <Portfolio />
+      <ContactMe/>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
