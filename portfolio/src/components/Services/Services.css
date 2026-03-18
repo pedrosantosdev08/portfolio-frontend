@@ -1,14 +1,14 @@
 .service-container {
-  padding: 60px 20px;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 110px 2rem 2rem; /* 90px do header + 20px de respiro */
   text-align: center;
 }
 
 .service-title h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #333;
+  color: var(--font-color-white);
 }
 
 .service-title p {

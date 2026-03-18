@@ -3,14 +3,16 @@
 
 
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
 
-body {
+html, body {
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory; 
+  scroll-behavior: smooth;
   background-color: var(--background-color);
-  transition: all 0.8s ease;
-  
 }
+
