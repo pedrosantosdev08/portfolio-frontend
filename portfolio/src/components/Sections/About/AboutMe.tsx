@@ -1,6 +1,6 @@
 import "./AboutMe.css";
-import ProfileImage from "../../assets/hero-image.jpeg";
-import Curriculo from "../../assets/Curriculo-pedrosantos-frontend.pdf";
+import ProfileImage from "../../../assets/hero-image.jpeg";
+import Curriculo from "../../../assets/Curriculo-pedrosantos-frontend.pdf";
 
 
 export function AboutMe() {

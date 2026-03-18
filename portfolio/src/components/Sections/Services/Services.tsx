@@ -1,6 +1,7 @@
-import { Card } from "../Card/ServiceCard/Card";
+
 import { faCode, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import "./Services.css";
+import { Card } from "../../UI/Card/ServiceCard/Card";
 
 export function Services() {
   // 1. Criamos a lista de serviços (Poderia vir de uma API no futuro)

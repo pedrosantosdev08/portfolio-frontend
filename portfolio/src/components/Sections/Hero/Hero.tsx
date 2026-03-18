@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import HeroImage from "../../assets/hero-image.jpeg"
-import Curriculo from "../../assets/Curriculo-pedrosantos-frontend.pdf"
+import HeroImage from "../../../assets/hero-image.jpeg"
+import Curriculo from "../../../assets/Curriculo-pedrosantos-frontend.pdf"
 import "./Hero.css"
 
 export function Hero() {
@@ -26,7 +26,7 @@ export function Hero() {
         </nav>
 
         <div className="actions-btn">
-          <button className="btn-default">Contact Me</button>
+          <button className="btn-default"><a href="#contactme">Contact Me</a></button>
           
           <a href={Curriculo} download className="btn-secondary">
             Download CV

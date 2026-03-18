@@ -1,0 +1,65 @@
+.portfolio-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 110px 2rem 5rem; 
+  background-color: var(--background-color);
+  min-height: 100vh; /* Permite que o container cresça se houver muitos projetos */
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--font-color-white);
+  padding-bottom: 40px; 
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.section-title p {
+  color: #666;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.portfolio-grid {
+  display: grid;
+  /* auto-fit preenche o espaço e minmax evita que o card fique menor que 280px */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+/* --- RESPONSIVIDADE --- */
+
+@media (max-width: 768px) {
+  .portfolio-container {
+    padding: 100px 1.5rem 3rem;
+  }
+
+  .section-title h2 {
+    font-size: 2rem;
+  }
+  
+  .portfolio-grid {
+    gap: 1.5rem;
+    /* Em telas muito pequenas, garante que os cards ocupem a largura quase toda */
+    grid-template-columns: 1fr; 
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title h2 {
+    font-size: 1.8rem;
+  }
+  
+  .portfolio-container {
+    padding: 90px 1rem 2rem;
+  }
+}

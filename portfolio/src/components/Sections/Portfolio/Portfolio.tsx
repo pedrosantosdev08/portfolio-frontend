@@ -1,9 +1,11 @@
 import { useState } from 'react';
  // Importação do novo componente
-import { Modal } from '../Modal/Modal';
+
 import "./Portfolio.css";
-import { ProjectCard } from '../Card/ProjectCard/ProjectCard';
-import CatalogoFilmes from "../../assets/images/projects/catalogo-filmes-image.png"
+
+import CatalogoFilmes from "../../../assets/images/projects/catalogo-filmes-image.png"
+import { ProjectCard } from '../../UI/Card/ProjectCard/ProjectCard';
+import { Modal } from '../../UI/Modal/Modal';
 
 export function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<any | null>(null);
@@ -30,6 +32,7 @@ export function Portfolio() {
       tech: ["HTML, CSS, JavaScript"],
       fullDetails: "Sistema completo com informações sobre filmes e séries."
     },
+    
     
   ];
 

@@ -1,9 +1,10 @@
 import "./App.css";
-import { AboutMe } from "./components/About/AboutMe";
-import { Header } from "./components/Header/Header";
-import { Hero } from "./components/Hero/Hero";
-import { Portfolio } from "./components/Portfolio/Portfolio";
-import { Services } from "./components/Services/Services";
+import { AboutMe } from "./components/Sections/About/AboutMe";
+import { ContactMe } from "./components/Sections/ContactMe/ContactMe";
+import { Header } from "./components/Sections/Header/Header";
+import { Hero } from "./components/Sections/Hero/Hero";
+import { Portfolio } from "./components/Sections/Portfolio/Portfolio";
+import { Services } from "./components/Sections/Services/Services";
 
 function App() {
   return (
@@ -11,8 +12,9 @@ function App() {
       <Header />
       <Hero />
       <Services />
-      <AboutMe/>
-      <Portfolio/>
+      <AboutMe />
+      <Portfolio />
+      <ContactMe/>
     </>
   );
 }
