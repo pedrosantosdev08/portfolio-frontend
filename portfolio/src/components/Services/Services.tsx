@@ -1,5 +1,6 @@
-import { Card } from "./Card/Card";
+import { Card } from "../Card/Card";
 import { faCode, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
+import "./Services.css"
 
 export function Services() {
   // 1. Criamos a lista de serviços (Poderia vir de uma API no futuro)
@@ -12,10 +13,11 @@ export function Services() {
       icon: faCode,
     },
     {
-      title: "UI/UX Design",
-      description: "Interfaces focadas na experiência do usuário e conversão.",
+      title: "Sites Institucionais",
+      description:
+        "Presença digital para empresas (quem somos, serviços, contato).",
       link: "#",
-      tech: ["Figma", "Miro"],
+      tech: ["Next.js", "Typescript", "Node.js"],
       icon: faLayerGroup,
     },
     {
@@ -25,14 +27,6 @@ export function Services() {
       link: "#",
       tech: ["HTML", "CSS", "JavaScript"],
       icon: faCode,
-    },
-    {
-      title: "Sites Institucionais",
-      description:
-        "Presença digital para empresas (quem somos, serviços, contato).",
-      link: "#",
-      tech: ["Next.js", "Typescript, Node.js"],
-      icon: faLayerGroup,
     },
   ];
 

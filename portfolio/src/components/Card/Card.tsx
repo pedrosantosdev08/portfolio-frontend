@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import "./Card.css"
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 interface CardProps {

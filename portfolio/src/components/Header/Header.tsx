@@ -1,10 +1,10 @@
-import "../App.css";
+import "./Header.css"
 
 export function Header() {
   return (
-    <header className="header-container">
+    <header id="home" className="header-container">
       
-      <div className="logo-title">Logo</div>
+      
       
       <nav className="nav-bar" aria-label="Navegação principal">
         <ul className="nav-list">
@@ -15,7 +15,7 @@ export function Header() {
         </ul>
       </nav>
 
-      <button className="btn-default">Contact me</button>
+      
     </header>
   );
 }
