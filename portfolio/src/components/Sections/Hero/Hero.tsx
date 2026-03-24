@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import HeroImage from "../../../assets/hero-image.jpeg"
 import Curriculo from "../../../assets/Curriculo-pedrosantos-frontend.pdf"
 import "./Hero.css"
@@ -17,10 +17,10 @@ export function Hero() {
         <p className="hero-subtitle">Web Developer</p>
 
         <nav className="social-media" aria-label="Redes Sociais">
-          <a href="https://instagram.com/seu-user" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faInstagram} size="2x" />
+          <a href="https://github.com/pedrosantosdev08" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faGithub} size="2x" />
           </a>
-          <a href="https://linkedin.com/in/seu-user" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/pedrodevsantos/" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faLinkedin} size="2x" />
           </a>
         </nav>
