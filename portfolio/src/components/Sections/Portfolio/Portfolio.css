@@ -1,9 +1,9 @@
 .portfolio-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 110px 2rem 5rem; 
+  padding: 110px 2rem 5rem;
   background-color: var(--background-color);
-  min-height: 100vh; /* Permite que o container cresça se houver muitos projetos */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -11,7 +11,7 @@
 .section-title {
   text-align: center;
   color: var(--font-color-white);
-  padding-bottom: 40px; 
+  padding-bottom: 40px;
 }
 
 .section-title h2 {
@@ -28,13 +28,42 @@
 
 .portfolio-grid {
   display: grid;
-  /* auto-fit preenche o espaço e minmax evita que o card fique menor que 280px */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   width: 100%;
 }
 
-/* --- RESPONSIVIDADE --- */
+.project-card {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.project-image-container {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+}
+
+.project-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.4s ease;
+}
+
+.project-card.is-mobile-card .project-thumb {
+  object-fit: contain;
+  padding: 15px;
+  background: linear-gradient(145deg, #1e1e1e, #121212);
+}
 
 @media (max-width: 768px) {
   .portfolio-container {
@@ -47,10 +76,13 @@
   
   .portfolio-grid {
     gap: 1.5rem;
-    /* Em telas muito pequenas, garante que os cards ocupem a largura quase toda */
-    grid-template-columns: 1fr; 
-    max-width: 400px;
+    grid-template-columns: 1fr;
+    max-width: 450px;
     margin: 0 auto;
+  }
+
+  .project-image-container {
+    height: 220px;
   }
 }
 
@@ -61,5 +93,9 @@
   
   .portfolio-container {
     padding: 90px 1rem 2rem;
+  }
+
+  .project-image-container {
+    height: 200px;
   }
 }

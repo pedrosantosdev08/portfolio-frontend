@@ -4,13 +4,21 @@ interface ProjectCardProps {
   title: string;
   image: string;
   onClick: () => void;
+  isMobile?: boolean; 
 }
 
-export function ProjectCard({ title, image, onClick }: ProjectCardProps) {
+export function ProjectCard({ title, image, onClick, isMobile }: ProjectCardProps) {
   return (
-    <div className="project-card" onClick={onClick}>
+    <div 
+      className={`project-card ${isMobile ? "is-mobile-card" : ""}`} 
+      onClick={onClick}
+    >
       <div className="project-image-container">
-        <img src={image} alt={title} className="project-thumb" />
+        <img 
+          src={image} 
+          alt={title} 
+          className={`project-thumb ${isMobile ? "thumb-mobile" : ""}`} 
+        />
         <div className="project-overlay">
           <span>Ver detalhes</span>
         </div>
