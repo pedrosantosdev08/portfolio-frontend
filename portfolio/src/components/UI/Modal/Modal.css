@@ -1,136 +1,129 @@
-:root {
-  --orange-glow: rgba(250, 110, 0, 0.4);
-  --glass-border: rgba(255, 255, 255, 0.08);
-}
-
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(12px) saturate(160%);
-  -webkit-backdrop-filter: blur(12px) saturate(160%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   z-index: 9999;
   padding: 24px;
   animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .modal-content {
-  background: var(--card-color);
+  background: #121214;
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 24px;
   max-width: 850px;
   width: 95%;
   max-height: 90vh;
-  overflow-y: auto;
-  overflow-x: hidden;
   position: relative;
+  overflow-y: auto;
   box-shadow: 
     0 0 0 1px rgba(255, 255, 255, 0.05),
     0 20px 50px -12px rgba(0, 0, 0, 0.8),
-    0 0 20px rgba(250, 110, 0, 0.05);
+    0 0 30px -10px var(--project-accent);
   animation: modalReveal 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   scrollbar-width: thin;
-  scrollbar-color: var(--orange-color) transparent;
+  scrollbar-color: var(--project-accent) transparent;
 }
 
 .modal-content::-webkit-scrollbar {
-  width: 5px;
-}
-
-.modal-content::-webkit-scrollbar-track {
-  background: transparent;
+  width: 6px;
 }
 
 .modal-content::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, transparent, var(--orange-color), transparent);
-  border-radius: 20px;
+  background: var(--project-accent);
+  border-radius: 10px;
+}
+
+.modal-image-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  overflow: hidden;
+  position: relative;
 }
 
 .modal-image {
   width: 100%;
-  height: 420px;
+  height: 100%;
   object-fit: cover;
-  display: block;
-  mask-image: linear-gradient(to bottom, black 0%, black 80%, rgba(0,0,0,0.5) 92%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, rgba(0,0,0,0.5) 92%, transparent 100%);
-  transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
+  transition: transform 1.2s cubic-bezier(0.2, 0, 0.2, 1);
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
 
 .modal-content:hover .modal-image {
-  transform: scale(1.02);
+  transform: scale(1.04);
 }
 
 .modal-info {
   padding: 40px;
-  margin-top: -40px;
-  position: relative;
-  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .modal-info h2 {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
   font-weight: 900;
-  color: var(--font-color-white);
+  color: #ffffff;
   letter-spacing: -0.04em;
   line-height: 1.1;
-  margin-bottom: 16px;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  background: linear-gradient(to right, #ffffff, var(--project-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.modal-info .description {
-  color: #666;
+.description, .details {
+  color: #a1a1aa;
   font-size: 1.1rem;
   line-height: 1.7;
-  max-width: 650px;
-  margin-bottom: 24px;
-  opacity: 0.9;
-}
-
-.modal-info .details {
-    color: #333;
+  max-width: 65ch;
 }
 
 .modal-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 24px;
 }
 
 .tag {
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
   padding: 6px 14px;
-  background: rgba(250, 110, 0, 0.1);
-  color: var(--orange-color);
-  border: 1px solid rgba(250, 110, 0, 0.2);
+  background: color-mix(in srgb, var(--project-accent), transparent 92%);
+  color: var(--project-accent);
+  border: 1px solid color-mix(in srgb, var(--project-accent), transparent 80%);
   border-radius: 100px;
 }
 
 .btn-visit {
+  width: fit-content;
   padding: 1rem 2.5rem;
-  background: var(--orange-color);
-  color: var(--font-color-white);
-  border: none;
-  border-radius: 8px;
+  background: var(--project-accent);
+  color: #ffffff;
+  border-radius: 12px;
   font-weight: 800;
-  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(250, 110, 0, 0.2);
+  box-shadow: 0 10px 20px -10px var(--project-accent);
 }
 
-.btn-visit:hover {
+.btn-visit:hover:not(:disabled) {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(250, 110, 0, 0.4);
-  filter: brightness(1.1);
+  filter: brightness(1.2);
+  box-shadow: 0 15px 30px -10px var(--project-accent);
+}
+
+.btn-visit:disabled {
+  background: #27272a;
+  color: #52525b;
+  cursor: not-allowed;
+  box-shadow: none;
 }
 
 .modal-close {
@@ -141,17 +134,17 @@
   height: 40px;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--glass-border);
-  color: var(--font-color-white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  z-index: 20;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
 }
 
 .modal-close:hover {
-  background: var(--orange-color);
+  background: #ef4444;
   transform: rotate(90deg);
   border-color: transparent;
 }
@@ -165,49 +158,14 @@
   from {
     opacity: 0;
     transform: translateY(40px) scale(0.98);
-    filter: blur(10px);
   }
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
-    filter: blur(0);
   }
 }
 
-.modal-image-container {
-  width: 100%;
-  height: 420px;
-  background-color: #0a0a0a;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.modal-image {
-  width: 100%;
-  height: 100%;
-  display: block;
-  transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
-  /* Máscara suave para o fade inferior */
-  mask-image: linear-gradient(to bottom, black 0%, black 80%, rgba(0,0,0,0.5) 92%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, rgba(0,0,0,0.5) 92%, transparent 100%);
-}
-
-/* Comportamento Desktop (Default) */
-.modal-image.is-desktop {
-  object-fit: cover;
-  object-position: top;
-}
-
-/* Comportamento Mobile (NaBag / OxeComprei) */
-.modal-image.is-mobile {
-  object-fit: contain;
-  padding: 30px 0; /* Espaço para o print respirar */
-  background: radial-gradient(circle, rgba(250, 110, 0, 0.05) 0%, transparent 70%);
-}
-
-.modal-content:hover .modal-image {
-  transform: scale(1.02);
+@media (max-width: 640px) {
+  .modal-info { padding: 30px 20px; }
+  .modal-content { border-radius: 0; width: 100%; height: 100%; max-height: 100vh; }
 }

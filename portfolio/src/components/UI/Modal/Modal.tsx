@@ -13,43 +13,40 @@ interface ModalProps {
     fullDetails?: string;
     isMobile?: boolean;
     link?: string; 
+    themeColor?: string; 
   } | null;
 }
 
 export function Modal({ isOpen, onClose, data }: ModalProps) {
   if (!isOpen || !data) return null;
 
-  const handleVisitProject = () => {
-    if (data.link) {
-      window.open(data.link, "_blank", "noopener,noreferrer");
-    } else {
-      alert("Link não disponível para este projeto.");
-    }
-  };
+  // Definimos um fallback caso o projeto não tenha cor definida
+  const accentColor = data.themeColor; 
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div 
+        className="modal-content" 
+        onClick={(e) => e.stopPropagation()}
+        style={{ "--project-accent": accentColor } as React.CSSProperties} // Injeção da cor
+      >
         <button className="modal-close" onClick={onClose}>
-          <FontAwesomeIcon icon={faX} size="1x" />
+          <FontAwesomeIcon icon={faX} />
         </button>
 
         <div className="modal-body">
           <div className="modal-image-container">
-            <img 
-              src={data.image} 
-              alt={data.title} 
-              className={`modal-image ${data.isMobile ? 'is-mobile' : 'is-desktop'}`} 
-            />
+            <img src={data.image} alt={data.title} className="modal-image" />
           </div>
           
           <div className="modal-info">
-            <h2>{data.title}</h2>
-            
-            <div className="modal-tags">
-              {data.tech.map((t, i) => (
-                <span key={i} className="tag">{t}</span>
-              ))}
+            <div className="modal-header-group">
+              <h2 className="dynamic-title">{data.title}</h2>
+              <div className="modal-tags">
+                {data.tech.map((t, i) => (
+                  <span key={i} className="tag">{t}</span>
+                ))}
+              </div>
             </div>
 
             <p className="description">{data.description}</p>
@@ -57,9 +54,8 @@ export function Modal({ isOpen, onClose, data }: ModalProps) {
             
             <button 
               className="btn-visit" 
-              onClick={handleVisitProject}
-              disabled={!data.link} 
-              style={{ opacity: data.link ? 1 : 0.5, cursor: data.link ? 'pointer' : 'not-allowed' }}
+              onClick={() => data.link && window.open(data.link, "_blank")}
+              disabled={!data.link}
             >
               {data.link ? "Visualizar Projeto" : "Em breve"}
             </button>
